@@ -42,14 +42,14 @@ const iconMap: Record<string, React.ReactNode> = {
 
 // Images for each timeline event - using direct paths
 const eventImages = [
-  '/public/assets/Bday/baby.png',
-  '/public/assets/Bday/baby.jpg',
-  '/public/assets/Bday/highschool.jpg',
-  '/public/assets/Bday/cousin.jpg',
-  '/public/assets/Bday/barkada3.jpg',
-  '/public/assets/Bday/graduate.png',
-  '/public/assets/Bday/lord.png',
-  '/public/assets/Bday/bff.jpg',
+  '/assets/Bday/baby.png',
+  '/assets/Bday/baby.jpg',
+  '/assets/Bday/highschool.jpg',
+  '/assets/Bday/cousin.jpg',
+  '/assets/Bday/barkada3.jpg',
+  '/assets/Bday/graduate.png',
+  '/assets/Bday/lord.png',
+  '/assets/Bday/bff.jpg',
 ];
 
 const defaultEvents: TimelineEvent[] = [
