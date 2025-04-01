@@ -1,0 +1,437 @@
+
+/* Birthday Celebration Styles */
+
+/* Additional Birthday Effects */
+.birthday-balloons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.balloon {
+  position: absolute;
+  font-size: 3rem;
+  animation: floatUpward 12s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  animation-delay: var(--delay);
+  color: var(--color);
+}
+
+@keyframes floatUpward {
+  0% {
+    bottom: -50px;
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    bottom: 110%;
+    transform: translateX(var(--translate, 50px)) rotate(var(--rotate, 15deg)) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Gift boxes */
+.birthday-gifts {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gift-box {
+  position: absolute;
+  font-size: var(--size, 50px);
+  left: var(--left, 10%);
+  bottom: 0;
+  animation: appearGift 1s ease-out forwards, bounceGift 2s ease-in-out infinite;
+  animation-delay: var(--delay, 0s), calc(var(--delay, 0s) + 1s);
+  opacity: 0;
+  transform: translateY(20px) rotate(var(--rotate, 0deg));
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes appearGift {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotate(var(--rotate, 0deg));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotate, 0deg));
+  }
+}
+
+@keyframes bounceGift {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--rotate, 0deg));
+  }
+}
+
+/* Improved wave decorations */
+.wave-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 2;
+}
+
+.wave-decoration svg.improved-wave {
+  filter: drop-shadow(0 -4px 6px rgba(165, 214, 167, 0.3));
+  width: 100%;
+}
+
+.wave-decoration path {
+  animation: wavyAnimation 8s ease-in-out infinite;
+}
+
+@keyframes wavyAnimation {
+  0%, 100% {
+    d: path("M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z");
+  }
+  50% {
+    d: path("M321.39,46.44c58-8.79,114.16-25.13,172-36.86,82.39-14.72,168.19-15.73,250.45-.39C823.78,26,906.67,62,985.66,82.83c70.05,15.48,146.53,22.09,214.34,3V120H0V22.35A600.21,600.21,0,0,0,321.39,46.44Z");
+  }
+}
+
+/* Enhanced button hover effects */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+/* Add sparkles to traits */
+.trait.visible::after {
+  content: '✨';
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  font-size: 0.7rem;
+  animation: sparkleAnimation 1.5s infinite;
+  opacity: 0;
+}
+
+.trait.visible:nth-child(even)::after {
+  content: '⭐';
+  left: -5px;
+  right: auto;
+  animation-delay: 0.75s;
+}
+
+@keyframes sparkleAnimation {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* Birthday cake candle effect for personality cards */
+.personality-card .card-icon::after {
+  content: '🔸';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  opacity: 0;
+}
+
+.personality-card:hover .card-icon::after {
+  content: '🔥';
+  animation: flicker 1s infinite alternate;
+  opacity: 1;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.5; }
+}
+
+/* Special message section enhancements */
+.special-message-container {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px dashed var(--color-green-300);
+  background-color: white;
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.7s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.special-message-container.expanded {
+  border-color: var(--color-green-400);
+  box-shadow: 0 15px 40px rgba(102, 187, 106, 0.25);
+  max-height: 500px;
+}
+
+.message-text {
+  opacity: 0.4;
+  height: 2.5em;
+  overflow: hidden;
+  transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+.left-heart {
+  left: 10px;
+  top: 50%;
+}
+
+.right-heart {
+  right: 10px;
+  top: 30%;
+}
+
+.top-heart {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reveal-message-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-green-300);
+  color: var(--color-green-900);
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reveal-message-btn:hover {
+  background-color: var(--color-green-400);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced animations for gallery items */
+.gallery-item {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.gallery-item:hover .gallery-item-inner {
+  transform: translateZ(10px) rotateX(5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item-inner {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Enhanced section transitions */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-green-300), transparent);
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+section.in-view::before {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.5s ease;
+}
+
+/* Encouragement section dark theme */
+.encouragement-section {
+  background-color: #1b4d2e;  /* Dark green background */
+  color: white;
+  position: relative;
+  padding: 4rem 0;
+}
+
+.encouragement-section .section-header h2,
+.encouragement-section .section-header p {
+  color: white;
+}
+
+.quote-container {
+  position: relative;
+  z-index: 1;
+}
+
+.quote-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.bible-verse-box {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.verse-reference {
+  margin-top: 1rem;
+  font-style: italic;
+  text-align: right;
+  opacity: 0.8;
+}
+
+/* Birthday confetti */
+.confetti {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* Falling stars effect */
+.falling-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px 2px white;
+  opacity: 0;
+  animation: fallingStarAnimation 3s ease-in infinite;
+}
+
+@keyframes fallingStarAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  5% {
+    opacity: 1;
+    transform: translate(10px, 10px) scale(1) rotate(15deg);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100px, 100px) scale(0.1) rotate(45deg);
+  }
+}
+
+/* Starburst effect for titles */
+.starburst-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.starburst-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(165, 214, 167, 0.2) 0%, transparent 70%);
+  z-index: -1;
+  animation: rotateStarburst 20s infinite linear;
+}
+
+@keyframes rotateStarburst {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bounce animation for gallery items */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.bounce-animation {
+  animation: bounce 2s ease infinite;
+}
+
+/* Rainbow gradient borders */
+.rainbow-border {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.rainbow-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #66BB6A, #81C784, #A5D6A7, #C8E6C9, #A5D6A7, #81C784, #66BB6A);
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0.4;
+  animation: animateRainbowBorder 2s linear infinite;
+}
+
+@keyframes animateRainbowBorder {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

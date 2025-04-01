@@ -1,0 +1,234 @@
+
+/* Additional Birthday Effects */
+.birthday-balloons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.balloon {
+  position: absolute;
+  font-size: 3rem;
+  animation: floatUpward 12s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  animation-delay: var(--delay);
+  color: var(--color);
+}
+
+@keyframes floatUpward {
+  0% {
+    bottom: -50px;
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    bottom: 110%;
+    transform: translateX(var(--translate, 50px)) rotate(var(--rotate, 15deg)) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.balloon:nth-child(1) {
+  left: 10%;
+  --translate: 70px;
+  --rotate: 20deg;
+}
+
+.balloon:nth-child(2) {
+  left: 50%;
+  --translate: -40px;
+  --rotate: -15deg;
+}
+
+.balloon:nth-child(3) {
+  left: 85%;
+  --translate: -70px;
+  --rotate: 10deg;
+}
+
+/* Gift boxes */
+.birthday-gifts {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gift-box {
+  position: absolute;
+  font-size: var(--size, 50px);
+  left: var(--left, 10%);
+  bottom: 0;
+  animation: appearGift 1s ease-out forwards, bounceGift 2s ease-in-out infinite;
+  animation-delay: var(--delay, 0s), calc(var(--delay, 0s) + 1s);
+  opacity: 0;
+  transform: translateY(20px) rotate(var(--rotate, 0deg));
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes appearGift {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotate(var(--rotate, 0deg));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotate, 0deg));
+  }
+}
+
+@keyframes bounceGift {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--rotate, 0deg));
+  }
+}
+
+/* Improved wave decorations */
+.wave-decoration svg.improved-wave {
+  filter: drop-shadow(0 -4px 6px rgba(165, 214, 167, 0.3));
+}
+
+.wave-decoration path {
+  animation: wavyAnimation 8s ease-in-out infinite;
+}
+
+@keyframes wavyAnimation {
+  0%, 100% {
+    d: path("M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z");
+  }
+  50% {
+    d: path("M321.39,46.44c58-8.79,114.16-25.13,172-36.86,82.39-14.72,168.19-15.73,250.45-.39C823.78,26,906.67,62,985.66,82.83c70.05,15.48,146.53,22.09,214.34,3V120H0V22.35A600.21,600.21,0,0,0,321.39,46.44Z");
+  }
+}
+
+/* Enhanced button hover effects */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+/* Add sparkles to traits */
+.trait.visible::after {
+  content: '✨';
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  font-size: 0.7rem;
+  animation: sparkleAnimation 1.5s infinite;
+  opacity: 0;
+}
+
+.trait.visible:nth-child(even)::after {
+  content: '⭐';
+  left: -5px;
+  right: auto;
+  animation-delay: 0.75s;
+}
+
+@keyframes sparkleAnimation {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* Birthday cake candle effect for personality cards */
+.personality-card .card-icon::after {
+  content: '🔸';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  opacity: 0;
+}
+
+.personality-card:hover .card-icon::after {
+  content: '🔥';
+  animation: flicker 1s infinite alternate;
+  opacity: 1;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.5; }
+}
+
+/* Special message section enhancements */
+.special-message-container.expanded {
+  border-color: var(--color-green-400);
+  box-shadow: 0 15px 40px rgba(102, 187, 106, 0.25);
+}
+
+.floating-heart {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Enhanced animations for gallery items */
+.gallery-item {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.gallery-item:hover .gallery-item-inner {
+  transform: translateZ(10px) rotateX(5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item-inner {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Enhanced section transitions */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-green-300), transparent);
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+section.in-view::before {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.5s ease;
+}
