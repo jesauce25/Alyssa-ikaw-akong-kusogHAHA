@@ -15,9 +15,9 @@
   --color-darkest-green: #132218;
   --color-accent: #FFC107;
   --color-light-green: #E8F5E9;
-  --font-display: 'Bubblegum Sans', 'Pacifico', cursive;
+  --font-display: 'Bubblegum Sans', 'Pacifico';
   --font-main: 'Inter', sans-serif;
-  --font-handwritten: 'Indie Flower', cursive;
+  --font-handwritten: 'Indie Flower',;
 }
 
 /* Custom drop shadow for glowing effects */
