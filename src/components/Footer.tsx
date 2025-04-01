@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ creatorName = "Your Secret Admirer" }) 
 
   useEffect(() => {
     // Create audio element
-    audioRef.current = new Audio('src/assets/Bday/greet.mp3');
+    audioRef.current = new Audio('assets/Bday/greet.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
 

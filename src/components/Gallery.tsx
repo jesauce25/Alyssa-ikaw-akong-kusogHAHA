@@ -19,32 +19,32 @@ interface GalleryProps {
 const galleryPhotos = [
   {
     type: 'image' as const,
-    url: '/src/assets/Bday/us.jpg',
+    url: '/assets/Bday/us.jpg',
     caption: 'APIL KOS BEAUTIFUL MEMORIES DYUD! AHHAHA'
   },
   {
     type: 'image' as const,
-    url: '/src/assets/Bday/family.JPG',
+    url: '/assets/Bday/family.JPG',
     caption: "Cherished moments, a lifetime of love."  
   },
   {
     type: 'image' as const,
-    url: '/src/assets/Bday/barkada1.PNG',
+    url: '/assets/Bday/barkada1.PNG',
     caption: "Daughters of the Lord, shining in His love and grace."  
   },
   {
     type: 'image' as const,
-    url: '/src/assets/Bday/barkada2.jpg',
+    url: '/assets/Bday/barkada2.jpg',
     caption: 'Precious memories with special people'
   },
   {
     type: 'image' as const,
-    url: '/src/assets/Bday/joji.PNG',
+    url: '/assets/Bday/joji.PNG',
     caption: "I’ll never forget the way your eyes lit up this night."  
   },
   {
     type: 'image' as const,
-    url: '/src/assets/Bday/barkada.jpeg',
+    url: '/assets/Bday/barkada.jpeg',
     thumbnail: 'frens.jpg',
     caption: "Unforgettable moments with my favorite people in the perfect place."  
   }
@@ -54,28 +54,28 @@ const galleryPhotos = [
 const lovedOnes: MediaItem[] = [
   {
     type: 'image',
-    url: '/src/assets/Bday/dad.PNG',
+    url: '/assets/Bday/dad.PNG',
     caption: 'Forever your biggest supporter and protector.',
     name: 'Dad',
     relationship: 'Father'
   },
   {
     type: 'image',
-    url: '/src/assets/Bday/mom.PNG',
+    url: '/assets/Bday/mom.PNG',
     caption: 'The one who knows your heart better than anyone else.',
     name: 'Mom',
     relationship: 'Mother'
   },
   {
     type: 'image',
-    url: '/src/assets/Bday/atehug.PNG',
+    url: '/assets/Bday/atehug.PNG',
     caption: 'Your sister, your friend, your lifelong companion.',
     name: 'Ate',
     relationship: 'Sister'
   },
   {
     type: 'image',
-    url: '/src/assets/Bday/me.jpeg',
+    url: '/assets/Bday/me.jpeg',
     caption: 'AHAHAHAHAHAHAHAHAHAHHAAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH',
     name: 'Secret Superduper Ultra Omega Admirer!',
     relationship: 'Special Person'
